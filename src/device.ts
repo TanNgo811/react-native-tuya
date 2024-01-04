@@ -101,10 +101,10 @@ export function getDevice(params: GetDeviceParams): Promise<any> {
 }
 
 export type GetDataPointsParams = {
-  dpId: string,
-  devId?: string,
-}
+  dpId: string;
+  devId?: string;
+};
 
 export function getDp(params: GetDataPointsParams): Promise<any> {
-  return tuya.getDp(params)
+  return tuya.getDp(params);
 }

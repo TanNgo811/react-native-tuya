@@ -53,13 +53,13 @@ class TuyaUserModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
     /* 获取手机验证码 */
     @ReactMethod
     fun getValidateCode(params: ReadableMap, promise: Promise) {
-        if (ReactParamsCheck.checkParams(arrayOf(COUNTRYCODE, PHONENUMBER), params)) {
+        /*if (ReactParamsCheck.checkParams(arrayOf(COUNTRYCODE, PHONENUMBER), params)) {
             TuyaHomeSdk.getUserInstance().getValidateCode(
                     params.getString(COUNTRYCODE),
                     params.getString(PHONENUMBER),
                     getValidateCodeCallback(promise)
             )
-        }
+        }*/
     }
 
     /* 手机验证码登录 */
@@ -355,7 +355,7 @@ class TuyaUserModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
     val callback = object : IUidLoginCallback {
       override fun onSuccess(user: User?, homeId: Long) {
         promise.resolve(TuyaReactUtils.parseToWritableMap(user))
-        promise.resolve(TuyaReactUtils.parseToWritableMap(homeId))
+        //promise.resolve(TuyaReactUtils.parseToWritableMap(homeId.toString()))
       }
 
       override fun onError(code: String?, error: String?) {

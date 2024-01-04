@@ -2,7 +2,6 @@ package com.tuya.smart.rnsdk
 
 
 import com.facebook.react.ReactPackage
-import com.facebook.react.bridge.JavaScriptModule
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
@@ -25,6 +24,7 @@ import com.tuya.smart.rnsdk.scene.TuyaSceneModule
 import com.tuya.smart.rnsdk.share.TuyaShareModule
 import com.tuya.smart.rnsdk.timer.TuyaTimerModule
 import com.tuya.smart.rnsdk.user.TuyaUserModule
+import com.tuya.smart.rnsdk.ipcview.TuyaIpcViewManager
 
 import java.util.*
 
@@ -60,6 +60,7 @@ class TuyaReactPackage : ReactPackage {
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
         val managers = ArrayList<ViewManager<*, *>>()
+        managers.add(TuyaIpcViewManager(reactContext))
         return managers
     }
 }

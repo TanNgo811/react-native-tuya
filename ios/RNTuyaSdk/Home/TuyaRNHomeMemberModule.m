@@ -18,6 +18,7 @@
 #define kTuyaRNHomeMemberModuleName @"name"
 #define kTuyaRNHomeMemberModuleAdmin @"admin"
 #define kTuyaRNHomeMemberModuleMemberId @"memberId"
+#define kTuyaRNHomeMemberModuleInviteCode @"code"
 //#define kTuyaRNHomeMemberModule
 
 @interface TuyaRNHomeMemberModule()
@@ -77,6 +78,22 @@ RCT_EXPORT_METHOD(removeMember:(NSDictionary *)params resolver:(RCTPromiseResolv
 
   NSNumber *memberId = params[kTuyaRNHomeMemberModuleMemberId];
   [self.homeMember removeHomeMemberWithMemberId:memberId.longLongValue success:^{
+    [TuyaRNUtils resolverWithHandler:resolver];
+  } failure:^(NSError *error) {
+    [TuyaRNUtils rejecterWithError:error handler:rejecter];
+  }];
+}
+
+/**
+ * Join Home by Invite Code
+ *
+ * @param inviteCode
+ * @param callback
+ */
+RCT_EXPORT_METHOD(joinHomeByInviteCode:(NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolver rejecter:(RCTPromiseRejectBlock)rejecter) {
+
+  NSString *invitationCode = params[kTuyaRNHomeMemberModuleInviteCode]
+  [self.smartHomeInvitation joinHomeWithInvitationCode:invitationCode success:^{
     [TuyaRNUtils resolverWithHandler:resolver];
   } failure:^(NSError *error) {
     [TuyaRNUtils rejecterWithError:error handler:rejecter];

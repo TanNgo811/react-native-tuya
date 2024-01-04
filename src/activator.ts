@@ -71,10 +71,14 @@ export function getCurrentWifi(
   return tuya.getCurrentWifi({}, success, error);
 }
 
-export function getInitActivatorToken(params: GetActivatorTokenParams): Promise<any> {
+export function getInitActivatorToken(
+  params: GetActivatorTokenParams
+): Promise<any> {
   return tuya.getInitActivatorToken(params);
 }
 
-export function initQrGenerator(params: InitQrCodeActivatorParams): Promise<any> {
+export function initQrGenerator(
+  params: InitQrCodeActivatorParams
+): Promise<any> {
   return tuya.initQrCodeActivator(params);
 }

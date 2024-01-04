@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">tuyasmart-sdk-react-native</string>
+    <string name="sd">SD</string>
+    <string name="operation_failed">Operation failed</string>
 </resources>

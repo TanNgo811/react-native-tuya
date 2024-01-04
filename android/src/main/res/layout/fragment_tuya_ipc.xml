@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ipcview.TuyaIpcFragment"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/camera_video_view_Rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.tuya.smart.camera.middleware.widget.TuyaCameraView
+            android:id="@+id/camera_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/camera_mute"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/camera_mute_btn" />
+
+        <TextView
+            android:id="@+id/camera_quality"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/camera_mute"
+            android:background="@drawable/camera_shape_wireless_wake"
+            android:gravity="center"
+            android:text="@string/sd"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

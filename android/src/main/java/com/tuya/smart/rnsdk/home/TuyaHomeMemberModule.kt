@@ -66,4 +66,12 @@ class TuyaHomeMemberModule(reactContext: ReactApplicationContext) : ReactContext
             })
         }
     }
+
+    /* 查询Home下面的成员列表 */
+    @ReactMethod
+    fun joinHomeByInviteCode(params: ReadableMap, promise: Promise) {
+        if (ReactParamsCheck.checkParams(arrayOf(Constant.CODE),params)) {
+            TuyaHomeSdk.getHomeManagerInstance().joinHomeByInviteCode(params.getString(Constant.CODE),Constant.getIResultCallback(promise))
+        }
+    }
 }
